@@ -3,8 +3,6 @@ package com.example.todo.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.todo.service.UserService;
-
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -15,8 +13,6 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class Intercepter implements HandlerInterceptor {
-  
-  private final UserService userService;
 
   @Override
   public boolean preHandle (HttpServletRequest request, HttpServletResponse response, Object Handler) throws Exception {

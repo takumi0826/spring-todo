@@ -1,13 +1,8 @@
-DROP TABLE IF EXISTS m_user;
+DROP TABLE IF EXISTS task;
 
-CREATE TABLE IF NOT EXISTS m_user (
-	user_id VARCHAR(50),
-	password VARCHAR(100),
-	user_name VARCHAR(50),
-	birthday DATE,
-	age INT,
-	gender INT,
-	department_id INT,
-	role VARCHAR(50),
-	PRIMARY KEY(user_id)
+CREATE TABLE IF NOT EXISTS task (
+	id INT AUTO_INCREMENT,
+	title VARCHAR(100),
+	done BOOLEAN,
+	PRIMARY KEY(id)
 );
