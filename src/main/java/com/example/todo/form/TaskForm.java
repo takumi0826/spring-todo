@@ -1,9 +1,9 @@
-package com.example.todo.entity;
+package com.example.todo.form;
 
 import lombok.Data;
 
 @Data
-public class TaskEntity {
+public class TaskForm {
   private int id;
 
   private String title;

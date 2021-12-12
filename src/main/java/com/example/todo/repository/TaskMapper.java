@@ -15,5 +15,5 @@ public interface TaskMapper {
 
   public int updateTask(TaskInfoDto dto);
 
-  public void deleteOne(int id);
+  public int deleteTask(int id);
 }

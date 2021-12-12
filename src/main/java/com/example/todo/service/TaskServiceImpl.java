@@ -12,22 +12,22 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class TaskServiceImpl implements TaskService{
-  
+
   private final TaskMapper taskMapper;
 
-  public void createTask(TaskInfoDto dto) {
-    taskMapper.insertTask(dto);
+  public int createTask(TaskInfoDto dto) {
+    return taskMapper.insertTask(dto);
   }
 
   public List<TaskInfoDto> getTask() {
     return taskMapper.getTask();
   };
 
-  public void updateTask(TaskInfoDto dto) {
-    taskMapper.updateTask(dto);
+  public int updateTask(TaskInfoDto dto) {
+    return taskMapper.updateTask(dto);
   };
 
-  public void deleteTask(int id) {
-    taskMapper.deleteOne(id);
+  public int deleteTask(int id) {
+    return taskMapper.deleteTask(id);
   };
 }

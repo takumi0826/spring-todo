@@ -9,7 +9,6 @@ import com.example.todo.entity.MUser;
 import com.example.todo.repository.UserMapper;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -25,11 +24,11 @@ public class UserServiceImpl implements UserService {
 
   private final ModelMapper modelMapper;
 
-  private final PasswordEncoder passwordEncoder;
+  // private final PasswordEncoder passwordEncoder;
 
   @Override
   public void signup(UserInfoDto user){
-    user.setPassword(passwordEncoder.encode(user.getPassword()));
+    // user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setDepartmentId(1);
     user.setRole("ROLE_GENERAL");
     MUser entity = modelMapper.map(user, MUser.class);

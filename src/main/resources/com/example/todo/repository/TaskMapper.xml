@@ -8,14 +8,14 @@
       <result property="title" column="title"></result>
       <result property="done" column="done"></result>
     </resultMap>
-    <select id="findMany" resultMap="TaskEntity">
+    <select id="getTask" resultMap="TaskEntity">
       select
         *
       from
         task
       ;
     </select>
-
+<!-- 
     <select id="findOne" resultMap="TaskEntity">
       select
         *
@@ -24,21 +24,22 @@
       where
         id = #{id}
       ;
-    </select>
+    </select> -->
 
-    <insert id="insertOne">
+    <insert id="insertTask">
       insert into task (
         id,
         title,
         done
       )
       values (
+        null,
         #{title},
         #{done}
       )
     </insert>
 
-    <update id="updateOne">
+    <update id="updateTask">
       update
         task
       set
@@ -49,7 +50,7 @@
       ;
     </update>
 
-    <delete id="deleteOne">
+    <delete id="deleteTask">
       delete
       from
         task

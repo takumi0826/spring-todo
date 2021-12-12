@@ -4,13 +4,16 @@ import java.util.List;
 
 import com.example.todo.dto.TaskInfoDto;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface TaskService {
   
-  void createTask(TaskInfoDto dto);
+  int createTask(TaskInfoDto dto);
 
   List<TaskInfoDto> getTask();
 
-  void updateTask(TaskInfoDto dto);
+  int updateTask(TaskInfoDto dto);
 
-  void deleteTask(int id);
+  int deleteTask(int id);
 }

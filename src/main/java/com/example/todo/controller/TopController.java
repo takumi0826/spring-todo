@@ -1,26 +1,49 @@
 package com.example.todo.controller;
 
-import com.example.todo.constant.UrlConst;
-import com.example.todo.form.SignupForm;
+import java.util.List;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
+import com.example.todo.constant.UrlConst;
+import com.example.todo.dto.TaskInfoDto;
+import com.example.todo.service.TaskService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class TopController extends BaseController {
 
-  @GetMapping(value = UrlConst.TOP)
-  public String init(@CookieValue("SESSION") String cookie, SignupForm form, Model model) {
-    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    String userId = auth.getName();
-    return userId;
+  private final TaskService taskService;
+
+  @GetMapping(value = UrlConst.GET_TASK)
+  public List<TaskInfoDto> getTask() {
+    List<TaskInfoDto> taskInfo = taskService.getTask();
+    return taskInfo;
+  }
+
+  @PostMapping(value = UrlConst.INSERT_TASK)
+  public int createTask(@RequestBody TaskInfoDto dto) {
+    int result = taskService.createTask(dto);
+    return result;
+  }
+
+  @PutMapping(value = UrlConst.UPDATE_TASK)
+  public int updateTask(@RequestBody TaskInfoDto dto) {
+    int result = taskService.updateTask(dto);
+    return result;
+  }
+
+  @DeleteMapping(value = UrlConst.DELETE_TASK + "/{id}")
+  public int deleteTask(@PathVariable int id) {
+    int result = taskService.deleteTask(id);
+    return result;
   }
 }
