@@ -10,6 +10,8 @@ public class UrlConst {
 
   public static final String DELETE_TASK = "/api/delete-task";
 
+  public static final String GET_ONE_TASK = "/api/one-task";
+
   public static final String SIGNUP = "/signup";
 
   public static final String LOGIN = "/login";

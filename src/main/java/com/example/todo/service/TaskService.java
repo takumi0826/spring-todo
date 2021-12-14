@@ -16,4 +16,6 @@ public interface TaskService {
   int updateTask(TaskInfoDto dto);
 
   int deleteTask(int id);
+
+  TaskInfoDto getOneTask(int id);
 }

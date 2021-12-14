@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -45,5 +46,11 @@ public class TopController extends BaseController {
   public int deleteTask(@PathVariable int id) {
     int result = taskService.deleteTask(id);
     return result;
+  }
+
+  @GetMapping(value = UrlConst.GET_ONE_TASK)
+  public TaskInfoDto getOneTask(@RequestParam int id) {
+    TaskInfoDto taskInfo = taskService.getOneTask(id);
+    return taskInfo;
   }
 }

@@ -15,8 +15,8 @@
         task
       ;
     </select>
-<!-- 
-    <select id="findOne" resultMap="TaskEntity">
+
+    <select id="getOneTask" resultMap="TaskEntity">
       select
         *
       from
@@ -24,7 +24,7 @@
       where
         id = #{id}
       ;
-    </select> -->
+    </select>
 
     <insert id="insertTask">
       insert into task (
