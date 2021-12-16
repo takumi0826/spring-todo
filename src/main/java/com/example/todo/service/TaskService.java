@@ -2,6 +2,7 @@ package com.example.todo.service;
 
 import java.util.List;
 
+import com.example.todo.dto.DoneTaskDto;
 import com.example.todo.dto.TaskInfoDto;
 
 import org.springframework.stereotype.Service;
@@ -19,5 +20,5 @@ public interface TaskService {
   
   TaskInfoDto getOneTask(int id);
 
-  int doneTask(int id);
+  int doneTask(DoneTaskDto dto);
 }

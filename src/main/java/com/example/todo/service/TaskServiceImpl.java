@@ -3,6 +3,7 @@ package com.example.todo.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.todo.dto.DoneTaskDto;
 import com.example.todo.dto.TaskInfoDto;
 import com.example.todo.entity.TaskEntity;
 import com.example.todo.repository.TaskMapper;
@@ -52,7 +53,7 @@ public class TaskServiceImpl implements TaskService {
     return dto;
   };
 
-  public int doneTask(int id) {
-    return taskMapper.doneTask(id);
+  public int doneTask(DoneTaskDto dto) {
+    return taskMapper.doneTask(dto);
   };
 }

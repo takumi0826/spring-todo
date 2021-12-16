@@ -63,7 +63,7 @@
       update
         task
       set
-        done = true
+        done = #{bool}
       where
         id = #{id}
       ;

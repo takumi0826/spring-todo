@@ -2,6 +2,7 @@ package com.example.todo.repository;
 
 import java.util.List;
 
+import com.example.todo.dto.DoneTaskDto;
 import com.example.todo.dto.TaskInfoDto;
 import com.example.todo.entity.TaskEntity;
 
@@ -20,5 +21,5 @@ public interface TaskMapper {
 
   public TaskEntity getOneTask(int id);
 
-  public int doneTask (int id);
+  public int doneTask (DoneTaskDto dto);
 }

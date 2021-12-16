@@ -3,6 +3,7 @@ package com.example.todo.controller;
 import java.util.List;
 
 import com.example.todo.constant.UrlConst;
+import com.example.todo.dto.DoneTaskDto;
 import com.example.todo.dto.TaskInfoDto;
 import com.example.todo.service.TaskService;
 
@@ -54,9 +55,9 @@ public class TopController extends BaseController {
     return taskInfo;
   }
 
-  @PutMapping(value = UrlConst.DONE_TASK + "/{id}")
-  public int doneTask(@RequestParam int id) {
-    int result = taskService.doneTask(id);
+  @PutMapping(value = UrlConst.DONE_TASK)
+  public int doneTask(@RequestBody DoneTaskDto dto) {
+    int result = taskService.doneTask(dto);
     return result;
   }
 }
