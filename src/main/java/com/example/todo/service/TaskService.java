@@ -14,8 +14,10 @@ public interface TaskService {
   List<TaskInfoDto> getTask();
 
   int updateTask(TaskInfoDto dto);
-
+  
   int deleteTask(int id);
-
+  
   TaskInfoDto getOneTask(int id);
+
+  int doneTask(int id);
 }

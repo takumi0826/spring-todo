@@ -58,4 +58,14 @@
         id = #{id}
       ;
     </delete>
+
+    <update id="doneTask">
+      update
+        task
+      set
+        done = true
+      where
+        id = #{id}
+      ;
+    </update>
 </mapper>

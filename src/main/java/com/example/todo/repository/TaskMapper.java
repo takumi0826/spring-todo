@@ -19,4 +19,6 @@ public interface TaskMapper {
   public int deleteTask(int id);
 
   public TaskEntity getOneTask(int id);
+
+  public int doneTask (int id);
 }

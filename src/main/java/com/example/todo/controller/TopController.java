@@ -53,4 +53,10 @@ public class TopController extends BaseController {
     TaskInfoDto taskInfo = taskService.getOneTask(id);
     return taskInfo;
   }
+
+  @PutMapping(value = UrlConst.DONE_TASK + "/{id}")
+  public int doneTask(@RequestParam int id) {
+    int result = taskService.doneTask(id);
+    return result;
+  }
 }

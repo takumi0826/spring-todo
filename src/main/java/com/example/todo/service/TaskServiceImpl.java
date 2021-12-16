@@ -40,15 +40,19 @@ public class TaskServiceImpl implements TaskService {
   public int updateTask(TaskInfoDto dto) {
     return taskMapper.updateTask(dto);
   };
-
+  
   public int deleteTask(int id) {
     return taskMapper.deleteTask(id);
   };
-
+  
   public TaskInfoDto getOneTask(int id) {
     TaskEntity entity = taskMapper.getOneTask(id);
     TaskInfoDto dto = new TaskInfoDto();
     modelMapper.map(entity,dto);
     return dto;
+  };
+
+  public int doneTask(int id) {
+    return taskMapper.doneTask(id);
   };
 }

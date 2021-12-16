@@ -12,6 +12,8 @@ public class UrlConst {
 
   public static final String GET_ONE_TASK = "/api/one-task";
 
+  public static final String DONE_TASK = "/api/done-task";
+
   public static final String SIGNUP = "/signup";
 
   public static final String LOGIN = "/login";
