@@ -10,5 +10,11 @@ spring:
       schema-locations: classpath:database/schema.sql
       data-locations: classpath:database/data.sql
       encoding: utf-8
-  jpa:
-    show-sql: true
+logging:
+  level:
+    org:
+      springframework: WARN
+    com:
+      example:
+        todo:
+          repository: DEBUG
