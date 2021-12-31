@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class DoneTaskDto {
   private int id;
-  private boolean bool;
+  private boolean done;
 }
