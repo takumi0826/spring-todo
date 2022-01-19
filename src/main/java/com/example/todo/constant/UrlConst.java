@@ -17,4 +17,6 @@ public class UrlConst {
   public static final String SIGNUP = "/signup";
 
   public static final String LOGIN = "/login";
+
+  public static final String MAIL = "/api/mail";
 }
