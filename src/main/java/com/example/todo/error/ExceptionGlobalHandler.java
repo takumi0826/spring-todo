@@ -1,17 +1,47 @@
 package com.example.todo.error;
 
-import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+@ControllerAdvice("com.example.todo.controller")
 public class ExceptionGlobalHandler {
-  @ExceptionHandler(Exception.class)
-  public String handleException(Exception e, HttpServletResponse response, Model model) {
-    response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-    model.addAttribute("errorMessage", e.getMessage());
 
-    return "foo/error";
+  /**
+   * NullPointerExceptionが発生した場合のエラー処理を行う
+   *
+   * @param exception 発生した例外
+   * @return NullPointerExceptionが発生した場合のエラー画面
+   */
+  @ExceptionHandler(NullPointerException.class)
+  public String nullError(NullPointerException exception, Model model) {
+    model.addAttribute("errMsg", exception.getMessage());
+    return "null";
+  }
+
+  /**
+   * FileNotFoundExceptionが発生した場合のエラー処理を行う
+   *
+   * @param exception 発生した例外
+   * @return FileNotFoundExceptionが発生した場合のエラー画面
+   */
+  @ExceptionHandler(FileNotFoundException.class)
+  public String noFileError(FileNotFoundException exception, Model model) {
+    model.addAttribute("errMsg", exception.getMessage());
+    return "file";
+  }
+
+  /**
+   * 上記以外の例外が発生した場合のエラー処理を行う
+   * 
+   * @param exception 発生した例外
+   * @return デフォルトのエラー画面
+   */
+  @ExceptionHandler(Exception.class)
+  public String occurOtherException(Exception exception, Model model) {
+    model.addAttribute("errMsg", exception.getMessage());
+    return "exception";
   }
 }
